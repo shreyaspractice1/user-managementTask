@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <div class="addP my-5 mx-5">
+        <tr><button (click)="add()" class="btn btn-outline-warning" id="log">add Product</button>
+    </div>
+    <h2 style="color: brown; text-align: center;">User Lists</h2>
+
+    <div class="row">
+        <div class="col-md-4 p-5" *ngFor="let user of users">
+            <div class="card mb-5 p-2">
+                <div class="card-body">
+
+                    <img style="height: 50px;"
+                        src="https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705190400&semt=ais">
+                    <h5 class="card-title" style="color: sienna;">{{ user.firstname }} {{ user.lastname }}</h5>
+                    <hr>
+                    <p class="card-text"><strong style="color: lightslategray;">Email:</strong> {{ user.email }}</p>
+                    <p class="card-text"><strong style="color: cadetblue;">Address:</strong> {{ user.address }}</p>
+                    <p class="card-text"><strong style="color: cadetblue;">Mobile:</strong> {{ user.mobile }}</p>
+                    <p><button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+                        <button class="btn btn-dark mx-4" (click)="editUser(user)">Edit</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,78 @@
+<div class="row-justify-content-center m-2">
+    <div class="col-md-6 text-left rounded shadow py-12">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group m-4">
+                <label for="username"></label>
+                <input type="text" formControlName="firstname" class="form-control" placeholder="Enter FirstName"
+                    required>
+                <small class="text-danger mx-2"
+                    *ngIf="myForm.get('firstname')?.invalid && myForm.get('firstname')?.touched">
+                    <span *ngIf="myForm.get('firstname')?.errors?.['required']">First Name is required</span>
+                    <span
+                        *ngIf="myForm.get('firstname')?.errors?.['firstname'] && !myForm.get('firstname')?.errors?.['required']">Invalid
+                        email format</span>
+                    <span class="text-danger" *ngIf="myForm.get('firstname')?.errors?.['minlength']">First Name must
+                        contains atleast 7 characters</span>
+                </small>
+            </div>
+
+            <div class="form-group m-4">
+                <label for="lastname"></label>
+                <input type="text" formControlName="lastname" class="form-control" placeholder="Enter LastName"
+                    required>
+                <small class="text-danger mx-2"
+                    *ngIf="myForm.get('lastname')?.invalid && myForm.get('lastname')?.touched">
+                    <span *ngIf="myForm.get('lastname')?.errors?.['required']">Last Name is required</span>
+                    <span
+                        *ngIf="myForm.get('lastname')?.errors?.['lastname'] && !myForm.get('lastname')?.errors?.['required']">Invalid
+                        email format</span>
+                    <span class="text-danger" *ngIf="myForm.get('lastname')?.errors?.['minlength']">Last Name must
+                        contains atleast 8 characters</span>
+                </small>
+            </div>
+
+            <div class="form-group m-4">
+                <label for="username"></label>
+                <input type="text" formControlName="address" class="form-control" placeholder="Enter address" required>
+                <small class="text-danger mx-2"
+                    *ngIf="myForm.get('address')?.invalid && myForm.get('address')?.touched">
+                    <span *ngIf="myForm.get('address')?.errors?.['required']">Address is required</span>
+                    <span
+                        *ngIf="myForm.get('address')?.errors?.['address'] && !myForm.get('address')?.errors?.['required']">Invalid
+                        Address format</span>
+                    <span class="text-danger" *ngIf="myForm.get('address')?.errors?.['minlength']">Address must
+                        contains atleast 8 characters</span>
+                </small>
+            </div>
+
+            <div class="form-group m-4">
+                <label for="email"></label>
+                <input type="email" formControlName="email" class="form-control" placeholder="Enter email" required>
+                <small class="text-danger mx-2" *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
+                    <span *ngIf="myForm.get('email')?.errors?.['required']">Email is required</span>
+                    <span class="text-danger"
+                        *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.errors?.['email']">
+                        Enter valid Email*
+                    </span>
+                </small>
+            </div>
+
+            <div class="form-group m-4">
+                <label for="mobile"></label>
+                <input type="text" formControlName="mobile" class="form-control" placeholder="Enter mobile number"
+                    required>
+                <small class="text-danger mx-2" *ngIf="myForm.get('mobile')?.invalid && myForm.get('mobile')?.touched">
+                    <span *ngIf="myForm.get('mobile')?.errors?.['required']">Mobile number is required</span>
+
+                    <span class="text-danger" *ngIf="myForm.get('mobile')?.errors?.['pattern']">Mobile must
+                        contains atleast 10 digits & No characters</span><br>
+                    <span class="text-danger" *ngIf="myForm.get('mobile')?.errors?.['minlength']">Must contains 10
+                        number only</span>
+                </small>
+            </div>
+
+            <button type="submit" class="btn btn-primary m-4" [disabled]="!myForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
